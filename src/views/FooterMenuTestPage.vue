@@ -5,6 +5,9 @@
       </div>
       <button @click="addCount">Add</button>
     </template>
+    <template v-if="!isShowBox">
+      <h1>tooltips page</h1>
+    </template>
     <FooterMenu>
       <div class="layout-footer-button" @click="isShowBox = true">BOX</div>
       <div class="layout-footer-button" @click="isShowBox = false">tooltips</div>

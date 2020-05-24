@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <div v-if="buttonFlg" class="image-box">
+  <div class="image-box">
+    <div v-if="buttonFlg">
       <img src="@/assets/image/penguin1.jpg" class="image-size"/>
     </div>
-    <div v-else class="image-box">
+    <div v-else>
       <img src="@/assets/image/penguin2.jpg" class="image-size"/>
     </div>
     <SliderToggleBar
@@ -30,11 +30,13 @@ export default class ToggleTestPage extends Vue {
 
 <style scoped lang="scss">
 .image-box {
-  width: 100%;
+  margin: 0 auto;
+  max-width: 320px;
   height: 300px;
 }
 
 .image-size {
-  width: 100%;
+  max-width: 320px;
+  height: 400px;
 }
 </style>
