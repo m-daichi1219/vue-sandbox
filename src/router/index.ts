@@ -23,6 +23,11 @@ const routes: Array<RouteConfig> = [
     name: 'ToggleTestPage',
     component: () => import('../views/ToggleTestPage.vue'),
   },
+  {
+    path: '/footertest',
+    name: 'FooterMenuTestPage',
+    component: () => import('../views/FooterMenuTestPage.vue'),
+  },
 ];
 
 const router = new VueRouter({
