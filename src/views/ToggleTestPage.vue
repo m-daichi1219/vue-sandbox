@@ -1,9 +1,15 @@
 <template>
   <div>
-    <div v-if="buttonFlg">ON</div>
-    <div v-else>OFF</div>
+    <div v-if="buttonFlg" class="image-box">
+      <img src="@/assets/image/penguin1.jpg" class="image-size"/>
+    </div>
+    <div v-else class="image-box">
+      <img src="@/assets/image/penguin2.jpg" class="image-size"/>
+    </div>
     <SliderToggleBar
      :isOn="buttonFlg"
+     on-msg="泳ぎ"
+     off-msg="陸上"
      @toggleClick="buttonFlg = !buttonFlg"/>
   </div>
 </template>
@@ -23,15 +29,12 @@ export default class ToggleTestPage extends Vue {
 </script>
 
 <style scoped lang="scss">
-.box {
-  width: 100px;
-  height: 100px;
-  background: #000;
-  transition: all 300ms 0s ease;
+.image-box {
+  width: 100%;
+  height: 300px;
 }
 
-.active {
-  transform: translateX(300px);
-  background: #ff0000;
+.image-size {
+  width: 100%;
 }
 </style>

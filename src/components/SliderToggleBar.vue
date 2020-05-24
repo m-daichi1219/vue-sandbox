@@ -1,7 +1,10 @@
 <template>
   <div class="layout-button"
     @click="$emit('toggleClick')"
-    :class="{'background-button': 'background-button', 'on': isOn}" />
+    :class="{'background-button': 'background-button', 'on': isOn}">
+    <span class="on-message-text">{{onMsg}}</span>
+    <span class="off-message-text">{{offMsg}}</span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -11,6 +14,12 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 export default class SliderToggleBar extends Vue {
   @Prop({ default: false })
   isOn!: boolean;
+
+  @Prop({ default: 'ON' })
+  onMsg!: string;
+
+  @Prop({ default: 'OFF' })
+  offMsg!: string;
 
   get btnClass() {
     return [
@@ -27,6 +36,7 @@ export default class SliderToggleBar extends Vue {
   width: 100%;
   height: 1.5rem;
   border: none;
+  position: relative;
 }
 
 .background-button {
@@ -36,8 +46,25 @@ export default class SliderToggleBar extends Vue {
   cursor: pointer;
   &.on {
     background: linear-gradient(45deg, #f0bc68 0%, #f0bc68 30%, #c4d7d1 30%, #c4d7d1 100%);
-    // transition: all 300ms 0s ease;
   }
+}
+
+.on-message-text {
+  display: inline;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.off-message-text {
+  display: inline;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  font-weight: bold;
 }
 
 </style>
